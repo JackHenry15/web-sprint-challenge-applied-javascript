@@ -10,27 +10,31 @@
   //    <h1>{ title }</h1>
   //    <span class="temp">{ temp }</span>
   //  </div>
+
+import axios from "axios"
+
   //
 const Header = (title, date, temp) => {
+  //declaring
   const head = document.createElement('div')
   const dateSpan = document.createElement('span')
   const titleH = document.createElement('h1')
   const tempSpan = document.createElement('span')
-
+  //text content and class assignments
   dateSpan.textContent = date
   titleH.textContent = title
   tempSpan.textContent = temp
   head.classList.add('header')
   dateSpan.classList.add('date')
   tempSpan.classList.add('temp')
-
+  //structure
   head.appendChild(dateSpan)
   head.appendChild(titleH)
   head.appendChild(tempSpan)
 
   return head;
 }
-// console.log(Header());
+
   // TASK 2
   // ---------------------
   // Implement this function taking a css selector as its only argument.
@@ -38,14 +42,19 @@ const Header = (title, date, temp) => {
   // It should append the header to the element in the DOM that matches the given selector.
   //
 
-
+// const entryPoint = document.querySelector('.header-container');
 const headerAppender = (selector) => {
-  const baseEle = Header(selector);
+  const sltr = selector;
+
+  const entryPoint = sltr.appendChild(Header());
   
-  baseEle.append(selector);
-  
-  return baseEle
+
+  classList.add(selector)
+
+  return entryPoint
+
 }
+
 // console.log(headerAppender());
 
 export { Header, headerAppender }
