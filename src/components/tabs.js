@@ -35,10 +35,14 @@ const Tabs = (topics) => {
   t0Div.classList.add('tab')
   t1Div.classList.add('tab')
   t2Div.classList.add('tab')
+  t3Div.classList.add('tab')
+  t4Div.classList.add('tab')
   //structure
   topicsDiv.appendChild(t0Div)
   topicsDiv.appendChild(t1Div)
   topicsDiv.appendChild(t2Div)
+  topicsDiv.appendChild(t3Div)
+  topicsDiv.appendChild(t4Div)
 
   return topicsDiv;
 }
@@ -56,10 +60,9 @@ const tabsAppender = (selector) => {
   axios.get(`https://lambda-times-api.herokuapp.com/topics`)
   .then((res) => {
     const parent = document.querySelector(selector);
-    // const tpcs = res;
     parent.appendChild(Tabs(selector));
-    // tpcs.forEach(topics => parent.append(Tabs(tpcs)));
-    console.log(parent);
+    // console.log(parent);
+    return parent;
   })
   .catch((err) => {
     console.log(err, 'this is an error');

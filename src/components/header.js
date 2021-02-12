@@ -51,6 +51,7 @@ const headerAppender = (selector) => {
   headerThing.append(headChild);
 
   return headerThing;
+  // console.log(headerThing);
 }
 
 
