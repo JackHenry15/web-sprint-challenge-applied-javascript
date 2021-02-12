@@ -21,10 +21,14 @@ import axios from "axios";
 
   //
 const Card = (article) => {
-    article [
-      `headline`,
-      `authorPhoto`,
-      `authorName`
+    article[
+      headline = this.headline,
+      authorPhoto = this.authorPhoto,
+      authorName = this.authorName
+      // 'headline',
+      // 'authorPhoto',
+      // 'authorName'
+    
     ];
     // declarations
     const card = document.createElement('div')
@@ -36,7 +40,7 @@ const Card = (article) => {
 
     cardImg.src = article.authorPhoto
     cardHeadline.textContent = article.headline
-    cardSpan.textContent = `By ${authorName}`
+    cardSpan.textContent = `By ${article.authorName}`
     card.classList.add('card')
     cardHeadline.classList.add('headline')
     cardAuthor.classList.add('author')
@@ -66,18 +70,25 @@ const Card = (article) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
+// const cardAppender = (selector) => {
+//   axios.get(`https://lambda-times-api.herokuapp.com/articles`)
+//   .then( (res) => {
+     
+//       let newArray = res.map(Card(res.cardHeadline, res.authorPhoto, cardAuthor));
+//       return newArray;
+//       console.log(newArray);
+//   })
+//   .catch( (err) => {
+//     console.log(err, 'this is an error')
+//   })
+
+// }
 const cardAppender = (selector) => {
   axios.get(`https://lambda-times-api.herokuapp.com/articles`)
   .then( (res) => {
-      const resData = res.articles
-      const cardParent = document.querySelector(selector);
-      const cardElements = resData.map(selector => {
-        const card = Card(selector)
-        return card
-      })
-      cardElements.forEach(card => {
-        cardParent.appendChild(card);
-      })
+      const resData = res
+      const parent = document.querySelector(selector);
+      resData.forEach(selector => parent.appendChild(Card(selector)));
   })
   .catch( (err) => {
     console.log(err, 'this is an error')
