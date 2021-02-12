@@ -16,6 +16,9 @@
   //     <span>By { authorName }</span>
   //   </div>
   // </div>
+
+import axios from "axios";
+
   //
 const Card = (article) => {
     article [
@@ -64,8 +67,14 @@ const Card = (article) => {
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
 const cardAppender = (selector) => {
+  axios.get(`https://lambda-times-api.herokuapp.com/articles`)
+  .then( (res) => {
 
-  
+  })
+  .catch( (err) => {
+    console.log(err, 'this is an error')
+  })
+
 }
 
 export { Card, cardAppender }

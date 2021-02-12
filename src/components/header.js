@@ -12,7 +12,7 @@
   //  </div>
 
 import axios from "axios"
-import { articles } from "../mocks/data"
+
 
   //
 const Header = (title, date, temp) => {

@@ -22,11 +22,15 @@ const Tabs = (topics) => {
   const t0Div = document.createElement('div')
   const t1Div = document.createElement('div')
   const t2Div = document.createElement('div')
+  const t3Div = document.createElement('div')
+  const t4Div = document.createElement('div')
 
   //text content and class assignments
   t0Div.textContent = topics[0]
   t1Div.textContent = topics[1]
   t2Div.textContent = topics[2]
+  t3Div.textContent = topics[3]
+  t4Div.textContent = topics[4]
   topicsDiv.classList.add('topics')
   t0Div.classList.add('tab')
   t1Div.classList.add('tab')
@@ -36,7 +40,7 @@ const Tabs = (topics) => {
   topicsDiv.appendChild(t1Div)
   topicsDiv.appendChild(t2Div)
 
-  return topicsDiv
+  return topicsDiv;
 }
 
 
@@ -52,8 +56,8 @@ const tabsAppender = (selector) => {
   axios.get(`https://lambda-times-api.herokuapp.com/topics`)
   .then((res) => {
     const parent = document.querySelector(selector);
-    const tpcs = res.topics;
-    tpcs.forEach(topics => parent.appendChild(articleMaker(topics)));
+    const tpcs = res;
+    parent.appendChild(Tabs(selector));
     // tpcs.forEach(topics => parent.append(Tabs(tpcs)));
     console.log(parent);
   })
