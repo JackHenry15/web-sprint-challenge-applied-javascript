@@ -56,7 +56,7 @@ const tabsAppender = (selector) => {
   axios.get(`https://lambda-times-api.herokuapp.com/topics`)
   .then((res) => {
     const parent = document.querySelector(selector);
-    const tpcs = res;
+    // const tpcs = res;
     parent.appendChild(Tabs(selector));
     // tpcs.forEach(topics => parent.append(Tabs(tpcs)));
     console.log(parent);

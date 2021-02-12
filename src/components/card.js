@@ -69,7 +69,15 @@ const Card = (article) => {
 const cardAppender = (selector) => {
   axios.get(`https://lambda-times-api.herokuapp.com/articles`)
   .then( (res) => {
-
+      const resData = res.articles
+      const cardParent = document.querySelector(selector);
+      const cardElements = resData.map(selector => {
+        const card = Card(selector)
+        return card
+      })
+      cardElements.forEach(card => {
+        cardParent.appendChild(card);
+      })
   })
   .catch( (err) => {
     console.log(err, 'this is an error')
