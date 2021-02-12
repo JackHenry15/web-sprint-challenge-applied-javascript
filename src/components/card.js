@@ -69,15 +69,17 @@ const Card = (article) => {
 const cardAppender = (selector) => {
   axios.get(`https://lambda-times-api.herokuapp.com/articles`)
   .then( (res) => {
-    console.log(Card(res));
-    const parent = document.querySelector(selector);
-    response.data.forEach((headline) => {
+    // const 
+    // console.log(Card(res));
+    // const parent = document.querySelector(selector);
+    debugger
+    res.data.forEach(res => {
+      debugger
       const articleCard = Card({headline, authorPhoto, authorName})
       console.log(articleCard);
       parent.appendChild(articleCard);
     })
-    console.log(parent);
-    // return parent;
+   
   })
   .catch( (err) => {
     console.log(err, 'this is an error')
