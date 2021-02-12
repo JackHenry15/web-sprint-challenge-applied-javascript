@@ -12,6 +12,7 @@
   //  </div>
 
 import axios from "axios"
+import { articles } from "../mocks/data"
 
   //
 const Header = (title, date, temp) => {
@@ -41,20 +42,19 @@ const Header = (title, date, temp) => {
   // It should create a header using the Header component above, passing arguments of your choosing.
   // It should append the header to the element in the DOM that matches the given selector.
   //
+// const fakethings = document.createElement('div');
 
-// const entryPoint = document.querySelector('.header-container');
 const headerAppender = (selector) => {
-  const sltr = selector;
+  const headerThing = document.createElement('div')
+  const headChild = Header();
 
-  const entryPoint = sltr.appendChild(Header());
-  
+  headerThing.appendChild(headChild);
+  headerThing.classList.add(selector);
 
-  classList.add(selector)
-
-  return entryPoint
-
+  return headerThing;
 }
+// headerAppender(fakethings);
+console.log(headerAppender());
 
-// console.log(headerAppender());
 
 export { Header, headerAppender }
