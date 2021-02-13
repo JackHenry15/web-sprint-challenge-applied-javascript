@@ -23,6 +23,12 @@ const Tabs = (topics) => {
   const t0Div = document.createElement('div')
   const t1Div = document.createElement('div')
   const t2Div = document.createElement('div')
+  const t3Div = document.createElement('div')
+  const t4Div = document.createElement('div')
+  const t5Div = document.createElement('div')
+  const t6Div = document.createElement('div')
+  const t7Div = document.createElement('div')
+  const t8Div = document.createElement('div')
   
   //text content and class assignments
   t0Div.textContent = topics[0]
@@ -33,6 +39,12 @@ const Tabs = (topics) => {
   t0Div.classList.add('tab')
   t1Div.classList.add('tab')
   t2Div.classList.add('tab')
+  t3Div.classList.add('tab')
+  t4Div.classList.add('tab')
+  t5Div.classList.add('tab')
+  t6Div.classList.add('tab')
+  t7Div.classList.add('tab')
+  t8Div.classList.add('tab')
  
 
   //structure
@@ -60,12 +72,10 @@ const tabsAppender = (selector) => {
     const parent = document.querySelector(selector);
 
     for(let i = 0; i < topics.topics.length; i++){
-      topics.topics[i];
-    console.log(topics.topics[i]);
+      // topics.topics[i];
       parent.appendChild(Tabs(topics.topics[0]));
       
     
-    console.log(parent)
       }
       
     return parent;

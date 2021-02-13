@@ -69,10 +69,10 @@ const Card = (article) => {
 const cardAppender = (selector) => {
   axios.get(`https://lambda-times-api.herokuapp.com/articles`)
   .then(res => {
-    
+    // const headlines = document.values(articles.articles).flat().map(art => art.headline)
     const parent = document.querySelector(selector);    
     res.articles.forEach(item  => {
-      const boyCard = Card(item);
+      const boyCard = Card({headline, authorPhoto, authorName});
       console.log( boyCard );
       parent.appendChild( boyCard);
 
