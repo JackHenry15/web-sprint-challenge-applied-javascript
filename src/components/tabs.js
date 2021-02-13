@@ -62,11 +62,12 @@ const tabsAppender = (selector) => {
     for(let i = 0; i < topics.topics.length; i++){
       topics.topics[i];
     console.log(topics.topics[i]);
-      parent.appendChild(Tabs(topics.topics[i]));
+      parent.appendChild(Tabs(topics.topics[0]));
+      
     
     console.log(parent)
       }
-      parent.appendChild(Tabs(topics.topics[i]));
+      
     return parent;
   })
   .catch((err) => {
