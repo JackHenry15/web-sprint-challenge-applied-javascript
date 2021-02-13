@@ -14,6 +14,7 @@
   // </div>
 
 import axios from "axios"
+import { topics } from "../mocks/data"
 
   //
 const Tabs = (topics) => {
@@ -22,27 +23,23 @@ const Tabs = (topics) => {
   const t0Div = document.createElement('div')
   const t1Div = document.createElement('div')
   const t2Div = document.createElement('div')
-  const t3Div = document.createElement('div')
-  const t4Div = document.createElement('div')
-
+  
   //text content and class assignments
   t0Div.textContent = topics[0]
   t1Div.textContent = topics[1]
   t2Div.textContent = topics[2]
-  t3Div.textContent = topics[3]
-  t4Div.textContent = topics[4]
+
   topicsDiv.classList.add('topics')
   t0Div.classList.add('tab')
   t1Div.classList.add('tab')
   t2Div.classList.add('tab')
-  t3Div.classList.add('tab')
-  t4Div.classList.add('tab')
+ 
+
   //structure
   topicsDiv.appendChild(t0Div)
   topicsDiv.appendChild(t1Div)
   topicsDiv.appendChild(t2Div)
-  topicsDiv.appendChild(t3Div)
-  topicsDiv.appendChild(t4Div)
+  
 
   return topicsDiv;
 }
@@ -59,9 +56,17 @@ const Tabs = (topics) => {
 const tabsAppender = (selector) => {
   axios.get(`https://lambda-times-api.herokuapp.com/topics`)
   .then((res) => {
+
     const parent = document.querySelector(selector);
-    parent.appendChild(Tabs(selector));
-    // console.log(parent);
+
+    for(let i = 0; i < topics.topics.length; i++){
+      topics.topics[i];
+    console.log(topics.topics[i]);
+      parent.appendChild(Tabs(topics.topics[i]));
+    
+    console.log(parent)
+      }
+      parent.appendChild(Tabs(topics.topics[i]));
     return parent;
   })
   .catch((err) => {
